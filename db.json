@@ -1,0 +1,22 @@
+{
+  "token": {
+    "access_token": "9k3kljnslkdj_34lk2j34lks09sv",
+    "userId": 123
+  },
+  "board": {
+    "data":[
+      {
+        "idx": 0,
+        "title": "json-server 편해요",
+        "contents": "굿",
+        "createdBy":"yoon1"
+      },
+      {
+        "idx": 1,
+        "title": "백엔드 만들기 귀찮을떈?",
+        "contents": "json-server를 쓰면 된다",
+        "createdBy":"yoon2"
+      }
+    ]
+  }
+}
