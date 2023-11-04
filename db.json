@@ -1,21 +1,17 @@
 {
-  "token": {
-    "access_token": "9k3kljnslkdj_34lk2j34lks09sv",
-    "userId": 123
-  },
   "board": {
     "data": [
       {
         "idx":0,
         "title":"첫번째 게시글 제목",
-        "contents":"첫번째 게시글 내용",
-        "createdBy":"첫번째 작성자"
+        "content":"첫번째 게시글 내용",
+        "writer":"첫번째 작성자"
       },
       {
         "idx":1,
         "title":"두번째 게시글 제목",
-        "contents":"두번째 게시글 내용",
-        "createdBy":"두번째 작성자"
+        "content":"두번째 게시글 내용",
+        "writer":"두번째 작성자"
       }
     ]
   }

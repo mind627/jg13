@@ -4,12 +4,12 @@ import axios from 'axios';
 import Board from '../components/Board';
 
 const BoardDetail = () => {
-  const { idx } = useParams(); // /board/:idx와 동일한 변수명으로 데이터를 꺼낼 수 있습니다.
+  const { id } = useParams(); // /board/:idx와 동일한 변수명으로 데이터를 꺼낼 수 있습니다.
   const [loading, setLoading] = useState(true);
   const [board, setBoard] = useState({});
   const getBoard = async () => {
-    const resp = await (await axios.get(`//localhost:4000/board/`)).data;
-    setBoard(resp.data[idx]);
+    const resp = await (await axios.get(`http://3.36.130.238:8080/posts/${id}`)).data;
+    setBoard(resp);
     setLoading(false);
   };
 
@@ -23,10 +23,10 @@ const BoardDetail = () => {
         <h2>loading...</h2>
       ) : (
         <Board
-          idx={board.idx}
+          id={board.id}
           title={board.title}
-          contents={board.contents}
-          createdBy={board.createdBy}
+          content={board.content}
+          author={board.author}
         />
       )}
     </div>

@@ -6,13 +6,13 @@ const BoardWrite = () => {
   const navigate = useNavigate();
 
   const [board,setBoard] = useState({
-    idx:'',
     title:'',
-    createdBy:'',
-    contents: '',
+    author:'',
+    content: '',
+    password: '',
   });
 
-  const {idx,title,createdBy,contents} = board;
+  const {title,author,content,password} = board;
 
   const onChange = (event) => {
     const {value, name} = event.target;
@@ -22,10 +22,13 @@ const BoardWrite = () => {
   };
 
   const saveBoard = async() => {
-    await axios.post(`//localhost:4000/board`,board).then((res)=>{
+    if (board.title.length<10){
+      alert('10글자 이상 제목을 입력해주세요');
+    }else{
+    await axios.post(`http://3.36.130.238:8080/posts`,board).then((res)=>{
       alert('등록되었습니다.');
       navigate('/board');
-    });
+    });}
   };
 
   const backToList = () => {
@@ -47,24 +50,32 @@ const BoardWrite = () => {
         <span>작성자</span>
         <input 
           type="text" 
-          name="createdBy" 
-          value={createdBy} 
+          name="author" 
+          value={author} 
           onChange={onChange}/>
       </div>
       <br/>
       <div>
         <span>내용</span>
         <textarea 
-          name="contents"
+          name="content"
           cols="30"
           rows="10"
-          value={contents}
+          value={content}
+          onChange={onChange}
+        ></textarea>
+      </div>
+      <div>
+        <span>비밀번호</span>
+        <textarea 
+          name="password"
+          value={password}
           onChange={onChange}
         ></textarea>
       </div>
       <br/>
       <div>
-        <button onClick={saveBoard}>저장</button>
+        <button onClick={saveBoard} disabled={title===""||author===""||content===""||password===""}>저장</button>
         <button onClick={backToList}>취소</button>
       </div>
     </div>
