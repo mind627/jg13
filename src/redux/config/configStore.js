@@ -1,6 +1,8 @@
 import { createStore } from "redux";
 import { combineReducers } from "redux";
-
+import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
+import userSlice from "../modules/userSlicer";
+import authReducer from '../modules/authReducer';
 import serverConnector from "../modules/serverConnector";
 
 /*
@@ -18,8 +20,17 @@ combineReducers은 여러 개의 독립적인 reducer의 반환 값을 하나의
 */
 
 const rootReducer = combineReducers({
-  serverConnector
-}); 
+  serverConnector,
+  auth:authReducer,
+  reducer: {
+    user: userSlice,
+  },
+  // middleware: (getDefaultMiddleware) =>
+  //   getDefaultMiddleware({
+  //     serializableCheck: false,
+  //   }),
+  }); 
+
 const store = createStore(rootReducer); 
 
 export default store; 

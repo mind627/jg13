@@ -1,0 +1,5 @@
+.product_container{
+  flex-direction: row;
+  flex-wrap : wrap;
+  width: 100%;
+}

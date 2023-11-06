@@ -5,6 +5,9 @@ import BoardDetail from "./routes/BoardDetail";
 import BoardWrite from "./routes/BoardWrite";
 import BoardList from "./routes/BoardList";
 import BoardUpdate from "./routes/BoardUpdate";
+import Food from "./routes/Food";
+import SignIn from "./routes/SignIn";
+import SignUp from "./routes/SignUp";
 
 function App(){
   return (
@@ -14,6 +17,9 @@ function App(){
       <Route path="/board/:id" element={<BoardDetail/>}/>
       <Route path="/write" element={<BoardWrite/>}/>
       <Route path="/update/:id" element={<BoardUpdate />} />
+      <Route path="/Food" element={<Food/>} />
+      <Route path="/signin" element={<SignIn/>} />
+      <Route path="/signup" element={<SignUp/>} />
     </Routes>
   );
 }

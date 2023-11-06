@@ -27,7 +27,7 @@ const BoardWrite = () => {
     if (board.title.length<3){
       alert('3글자 이상 제목을 입력해주세요');
     }else{
-    await axios.post(`${serverAddress}`,board).then((res)=>{
+    await axios.post(`${serverAddress}/board`,board).then((res)=>{
       navigate('/board');
     }).catch(e=>{console.log(e.response)});}
   };

@@ -11,7 +11,7 @@ const BoardDetail = () => {
   const [loading, setLoading] = useState(true);
   const [board, setBoard] = useState({});
   const getBoard = async () => {
-    const resp = await (await axios.get(`${serverAddress}/${id}`)).data;
+    const resp = await (await axios.get(`${serverAddress}/board/${id}`)).data;
     setBoard(resp);
     setLoading(false);
   };

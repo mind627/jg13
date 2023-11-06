@@ -6,6 +6,7 @@ import Header from './layout/Header';
 import Footer from './layout/Footer';
 import store from './redux/config/configStore';
 import { Provider } from 'react-redux';
+import { Height } from '@material-ui/icons';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,7 +14,7 @@ root.render(
     <BrowserRouter>
       <Header/>
       <App />
-      <Footer/>
+      <Footer />
     </BrowserRouter>    
   </Provider>
 );

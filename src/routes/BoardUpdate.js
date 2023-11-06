@@ -25,7 +25,7 @@ const BoardUpdate = () => {
 
   const getBoard = async () => {
     // const resp = await (await axios.get(`/${id}`)).data;
-    const resp = await (await axios.get(`${serverAddress}/${id}`)).data;
+    const resp = await (await axios.get(`${serverAddress}/board/${id}`)).data;
     setBoard(resp);
   };
 
@@ -34,7 +34,7 @@ const BoardUpdate = () => {
       alert('3글자 이상 제목을 입력해주세요');
     }else{
     // await axios.patch(`/${id}`, board).then((res) => {
-    await axios.patch(`${serverAddress}/${id}`, board).then((res) => {
+    await axios.patch(`${serverAddress}/board/${id}`, board).then((res) => {
       navigate('/board/' + id);
     });}
   };
