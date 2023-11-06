@@ -1,8 +1,11 @@
 import React,{useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useSelector } from "react-redux";
 
 const BoardWrite = () => {
+  const serverAddress = useSelector(state=>state.serverConnector.serverAddress);
+
   const navigate = useNavigate();
 
   const [board,setBoard] = useState({
@@ -22,10 +25,11 @@ const BoardWrite = () => {
   };
 
   const saveBoard = async() => {
-    if (board.title.length<10){
-      alert('10글자 이상 제목을 입력해주세요');
+    if (board.title.length<3){
+      alert('3글자 이상 제목을 입력해주세요');
     }else{
-    await axios.post(`http://3.36.130.238:8080/posts`,board).then((res)=>{
+    // await axios.post(`/`,board).then((res)=>{
+    await axios.post(`${serverAddress}`,board).then((res)=>{
       alert('등록되었습니다.');
       navigate('/board');
     });}

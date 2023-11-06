@@ -1,8 +1,11 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useSelector } from "react-redux";
 
 const Board = ({id,title,content,author,password}) => {
+  const serverAddress = useSelector(state=>state.serverConnector.serverAddress);
+
   const navigate = useNavigate();
 
   const moveToUpdate = () => {
@@ -12,7 +15,7 @@ const Board = ({id,title,content,author,password}) => {
   const deleteBoard = async() => {
     if (window.confirm('게시글을 삭제하시겠습니까?')){
       var input = prompt('비밀번호 입력해주세요');
-      await axios.delete(`http://3.36.130.238:8080/posts/${id}`,{data:input}).then((res)=>{
+      await axios.delete(`${serverAddress}/${id}`,{data:input}).then((res)=>{
         alert('삭제되었습니다.');
         navigate('/board');
       });

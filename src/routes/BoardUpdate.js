@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
+import { useSelector } from "react-redux";
 
 const BoardUpdate = () => {
+  const serverAddress = useSelector(state=>state.serverConnector.serverAddress);
+
   const navigate = useNavigate();
   const { id } = useParams(); // /update/:idx와 동일한 변수명으로 데이터를 꺼낼 수 있습니다.
   const [board, setBoard] = useState({
@@ -22,15 +25,20 @@ const BoardUpdate = () => {
   };
 
   const getBoard = async () => {
-    const resp = await (await axios.get(`http://3.36.130.238:8080/posts/${id}`)).data;
+    // const resp = await (await axios.get(`/${id}`)).data;
+    const resp = await (await axios.get(`${serverAddress}/${id}`)).data;
     setBoard(resp);
   };
 
   const updateBoard = async () => {
-    await axios.patch(`http://3.36.130.238:8080/posts/${id}`, board).then((res) => {
+    if (board.title.length<3){
+      alert('3글자 이상 제목을 입력해주세요');
+    }else{
+    // await axios.patch(`/${id}`, board).then((res) => {
+    await axios.patch(`${serverAddress}/${id}`, board).then((res) => {
       alert('수정되었습니다.');
       navigate('/board/' + id);
-    });
+    });}
   };
 
   const backToDetail = () => {
@@ -73,7 +81,7 @@ const BoardUpdate = () => {
       </div>
       <br />
       <div>
-        <button onClick={updateBoard}>수정</button>
+        <button onClick={updateBoard} disabled={title===""||author===""||content===""||password===""}>수정</button>
         <button onClick={backToDetail}>취소</button>
       </div>
     </div>
