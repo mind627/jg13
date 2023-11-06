@@ -1,5 +1,5 @@
 const initialState = {
-  serverAddress: "//localhost:4000"
+  serverAddress: "json-server-three-psi.vercel.app"
 };
 
 const serverConnector = (state=initialState,action) => {
