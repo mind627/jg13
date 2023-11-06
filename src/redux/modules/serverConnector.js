@@ -1,5 +1,5 @@
 const initialState = {
-  serverAddress: "https://json-server-three-psi.vercel.app"
+  serverAddress: "https://plausible-recondite-seashore.glitch.me"
 };
 
 const serverConnector = (state=initialState,action) => {
