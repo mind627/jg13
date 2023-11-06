@@ -35,12 +35,12 @@ const BoardUpdate = () => {
     }else{
     // await axios.patch(`/${id}`, board).then((res) => {
     await axios.patch(`${serverAddress}/${id}`, board).then((res) => {
-      navigate('/posts/' + id);
+      navigate('/board/' + id);
     });}
   };
 
   const backToDetail = () => {
-    navigate('/posts/' + id);
+    navigate('/board/' + id);
   };
 
   useEffect(() => {

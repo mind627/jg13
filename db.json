@@ -1,5 +1,5 @@
 {
-  "posts": [
+  "board": [
     {
       "id": 0,
       "title": "첫번째 게시글 제목",
@@ -13,6 +13,24 @@
       "content": "두번째 게시글 내용",
       "author": "두번째 작성자",
       "password": "123"
+    },
+    {
+      "title": "aaa",
+      "author": "aaa",
+      "content": "aaa",
+      "id": 2
+    },
+    {
+      "title": "bbb",
+      "author": "bbb",
+      "content": "bbb",
+      "id": 3
+    },
+    {
+      "title": "ccc",
+      "author": "ccc",
+      "content": "ccc",
+      "id": 4
     }
   ]
 }

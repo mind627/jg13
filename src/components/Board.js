@@ -14,12 +14,12 @@ const Board = ({id,title,content,author,password}) => {
 
   const deleteBoard = async() => {
     await axios.delete(`${serverAddress}/${id}`).then((res)=>{
-      navigate('/posts');
+      navigate('/board');
     });
   };
 
   const moveToList = () => {
-    navigate('/posts');
+    navigate('/board');
   }
 
   return (
