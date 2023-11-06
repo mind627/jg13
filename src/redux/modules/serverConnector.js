@@ -1,5 +1,5 @@
 const initialState = {
-  serverAddress: "https://plausible-recondite-seashore.glitch.me"
+  serverAddress: "https://my-json-server.typicode.com/mind627/json-server"
 };
 
 const serverConnector = (state=initialState,action) => {
