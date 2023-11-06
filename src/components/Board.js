@@ -13,17 +13,13 @@ const Board = ({id,title,content,author,password}) => {
   };
 
   const deleteBoard = async() => {
-    if (window.confirm('게시글을 삭제하시겠습니까?')){
-      var input = prompt('비밀번호 입력해주세요');
-      await axios.delete(`${serverAddress}/${id}`,{data:input}).then((res)=>{
-        alert('삭제되었습니다.');
-        navigate('/board');
-      });
-    }
+    await axios.delete(`${serverAddress}/${id}`).then((res)=>{
+      navigate('/posts');
+    });
   };
 
   const moveToList = () => {
-    navigate('/board');
+    navigate('/posts');
   }
 
   return (

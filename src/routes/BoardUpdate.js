@@ -12,9 +12,8 @@ const BoardUpdate = () => {
     title: '',
     author: '',
     content: '',
-    password: ''
   });
-  const { title, author, content, password } = board; //비구조화 할당
+  const { title, author, content} = board; //비구조화 할당
 
   const onChange = (event) => {
     const { value, name } = event.target; //event.target에서 name과 value만 가져오기
@@ -36,13 +35,12 @@ const BoardUpdate = () => {
     }else{
     // await axios.patch(`/${id}`, board).then((res) => {
     await axios.patch(`${serverAddress}/${id}`, board).then((res) => {
-      alert('수정되었습니다.');
-      navigate('/board/' + id);
+      navigate('/posts/' + id);
     });}
   };
 
   const backToDetail = () => {
-    navigate('/board/' + id);
+    navigate('/posts/' + id);
   };
 
   useEffect(() => {
@@ -71,17 +69,9 @@ const BoardUpdate = () => {
           onChange={onChange}
         ></textarea>
       </div>
-      <div>
-        <span>비밀번호</span>
-        <textarea 
-          name="password"
-          value={password}
-          onChange={onChange}
-        ></textarea>
-      </div>
       <br />
       <div>
-        <button onClick={updateBoard} disabled={title===""||author===""||content===""||password===""}>수정</button>
+        <button onClick={updateBoard} disabled={title===""||author===""||content===""}>수정</button>
         <button onClick={backToDetail}>취소</button>
       </div>
     </div>

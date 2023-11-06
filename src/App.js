@@ -10,8 +10,8 @@ function App(){
   return (
     <Routes>
       <Route path="/" element={<Home/>}/>
-      <Route path="/board" element={<BoardList/>}/>
-      <Route path="/board/:id" element={<BoardDetail/>}/>
+      <Route path="/posts" element={<BoardList/>}/>
+      <Route path="/posts/:id" element={<BoardDetail/>}/>
       <Route path="/write" element={<BoardWrite/>}/>
       <Route path="/update/:id" element={<BoardUpdate />} />
     </Routes>

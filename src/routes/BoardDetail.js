@@ -11,7 +11,6 @@ const BoardDetail = () => {
   const [loading, setLoading] = useState(true);
   const [board, setBoard] = useState({});
   const getBoard = async () => {
-    // const resp = await (await axios.get(`/${id}`)).data;
     const resp = await (await axios.get(`${serverAddress}/${id}`)).data;
     setBoard(resp);
     setLoading(false);
@@ -38,3 +37,6 @@ const BoardDetail = () => {
 };
 
 export default BoardDetail;
+
+
+

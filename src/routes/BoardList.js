@@ -25,7 +25,7 @@ const BoardList = () => {
     <div>
       <ul>{boardList.map((board)=>(
           <li key={board.id}>
-            <Link to={`/board/${board.id}`}>{board.title}</Link>
+            <Link to={`/posts/${board.id}`}>{board.title}</Link>
           </li>
         ))}
       </ul>

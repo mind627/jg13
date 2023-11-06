@@ -12,10 +12,9 @@ const BoardWrite = () => {
     title:'',
     author:'',
     content: '',
-    password: '',
   });
 
-  const {title,author,content,password} = board;
+  const {title,author,content} = board;
 
   const onChange = (event) => {
     const {value, name} = event.target;
@@ -28,11 +27,9 @@ const BoardWrite = () => {
     if (board.title.length<3){
       alert('3글자 이상 제목을 입력해주세요');
     }else{
-    // await axios.post(`/`,board).then((res)=>{
     await axios.post(`${serverAddress}`,board).then((res)=>{
-      alert('등록되었습니다.');
       navigate('/board');
-    });}
+    }).catch(e=>{console.log(e.response)});}
   };
 
   const backToList = () => {
@@ -69,17 +66,9 @@ const BoardWrite = () => {
           onChange={onChange}
         ></textarea>
       </div>
-      <div>
-        <span>비밀번호</span>
-        <textarea 
-          name="password"
-          value={password}
-          onChange={onChange}
-        ></textarea>
-      </div>
       <br/>
       <div>
-        <button onClick={saveBoard} disabled={title===""||author===""||content===""||password===""}>저장</button>
+        <button onClick={saveBoard} disabled={title===""||author===""||content===""}>저장</button>
         <button onClick={backToList}>취소</button>
       </div>
     </div>
