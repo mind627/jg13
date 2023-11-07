@@ -16,7 +16,7 @@ const Board = ({id,title,content,author,password}) => {
   };
 
   const deleteBoard = async() => {
-    await axios.delete(`${serverAddress}/${id}`).then((res)=>{
+    await axios.delete(`${serverAddress}/board/${id}`).then((res)=>{
       navigate('/board');
     });
   };
