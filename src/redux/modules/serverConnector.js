@@ -1,5 +1,5 @@
 const initialState = {
-  serverAddress: "https://my-json-server.typicode.com/mind627/json-server"
+  serverAddress: "https://json-server-three-psi.vercel.app"
 };
 
 const serverConnector = (state=initialState,action) => {
